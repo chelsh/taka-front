@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import Input from "@/app/components/Input";
 import Button from "@/app/components/Button";
-import Modal from "@/app/components/Modal";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -26,50 +25,42 @@ export default function Home() {
         </div>
         <div className="text-center w-full">
           <div className="text-lg font-semibold mb-6">로그인</div>
-          <div className="flex flex-col items-center justify-center mx-6 pb-8 border-b-[1px] border-b-gray-200">
+          <div className="flex flex-col items-center justify-center space-y-3 mx-6 pb-8 border-b-[1px] border-b-gray-200">
             <Input
               type="text"
               placeholder="학교 이메일"
               value={email}
               maxLength={30}
               onChange={(e) => {
-                const regex1 = new RegExp("[A-Za-z0-9]+@+[a-z]+.+[a-z]");
-                const regex2 = new RegExp(
-                  "[A-Za-z0-9]+@+[a-z]+.+[a-z]+.+[a-z]"
-                );
-                if (regex1.test(e.target.value) || regex2.test(e.target.value))
-                  setShowEmailWarning(false);
+                const regex1 = /[A-Za-z0-9]+@([a-z]+\.){1,2}[a-z]{2,}/;
+
+                if (regex1.test(e.target.value)) setShowEmailWarning(false);
                 else setShowEmailWarning(true);
                 setEmail(e.target.value);
               }}
             />
-            <div className="mb-3 w-full flex">
-              {showEmailWarning ? (
-                <div className="text-red-700 text-xs mt-1 ml-3">
-                  정확한 이메일 주소를 써주세요.
-                </div>
-              ) : null}
-            </div>
+            {showEmailWarning ? (
+              <div className="mb-3 text-start w-full text-red-700 text-xs mt-1 ml-2">
+                정확한 이메일 주소를 써주세요.
+              </div>
+            ) : null}
             <Input
               type="password"
               placeholder="비밀번호"
               value={password}
               onChange={(e) => {
-                const regex1 = new RegExp("[A-Za-z0-9*!]");
+                const regex1 =
+                  /(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}/;
                 if (regex1.test(e.target.value)) setShowPasswordWarning(false);
                 else setShowPasswordWarning(true);
-                console.log(regex1.test(e.target.value));
                 setPassword(e.target.value);
               }}
             />
-            <div className="mb-3 w-full flex">
-              {showPasswordWarning ? (
-                <div className="text-red-700 text-xs mt-1 ml-3">
-                  비밀번호에는 영문(대/소문자), 숫자, 특수문자(*, !)만 입력
-                  가능합니다.
-                </div>
-              ) : null}
-            </div>
+            {showPasswordWarning ? (
+              <div className="mb-3 w-full text-start flex text-red-700 text-xs mt-1 ml-2">
+                비밀번호는 영문, 숫자, 특수문자 조합의 8~15자를 사용해야 합니다.
+              </div>
+            ) : null}
             <Button
               bgColor="bg-black"
               textColor="text-white"
