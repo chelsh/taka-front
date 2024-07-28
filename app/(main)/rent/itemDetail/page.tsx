@@ -4,14 +4,17 @@ import Image from "next/image";
 import Button from "@/app/components/Button";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function ItemDetail() {
+export default function ItemDetail({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string };
+  //   searchParams?: { [key: string]: string | string[] | undefined };
+}) {
   const router = useRouter();
-  const searchParams = useSearchParams();
 
-  const groupName = searchParams.get("groupName");
-  console.log(groupName);
-  const groupId = searchParams.get("groupId");
-  const itemId = searchParams.get("itemId");
+  const groupName = searchParams!.groupName;
+  const groupId = searchParams!.groupId;
+  const itemId = searchParams!.itemId;
 
   const itemDetail = {
     id: 0,

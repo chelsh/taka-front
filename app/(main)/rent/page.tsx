@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import ItemsFeed from "../../components/ItemsFeed";
@@ -91,11 +91,335 @@ export default function Rent() {
             },
           ],
         },
+        {
+          category: "롱보드",
+          description: "주행에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "롱보드0",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 1,
+              name: "롱보드1",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+        {
+          category: "롱보드",
+          description: "주행에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "롱보드0",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 1,
+              name: "롱보드1",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
       ],
     },
     {
       id: 1,
       name: "식품공학과",
+      itemList: [
+        {
+          category: "스케이트보드",
+          description: "트릭에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "스케이트보드0",
+              photos: ["/board.jpeg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 1,
+              name: "스케이트보드1",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+        {
+          category: "롱보드",
+          description: "주행에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "롱보드0",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "그룹2",
+      itemList: [
+        {
+          category: "스케이트보드",
+          description: "트릭에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "스케이트보드0",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 1,
+              name: "스케이트보드1",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 2,
+              name: "스케이트보드2",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 3,
+              name: "스케이트보드3",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 4,
+              name: "스케이트보드4",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+        {
+          category: "롱보드",
+          description: "주행에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "롱보드0",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 1,
+              name: "롱보드1",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "그룹3",
+      itemList: [
+        {
+          category: "스케이트보드",
+          description: "트릭에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "스케이트보드0",
+              photos: ["/board.jpeg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 1,
+              name: "스케이트보드1",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+        {
+          category: "롱보드",
+          description: "주행에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "롱보드0",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "그룹4",
+      itemList: [
+        {
+          category: "스케이트보드",
+          description: "트릭에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "스케이트보드0",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 1,
+              name: "스케이트보드1",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 2,
+              name: "스케이트보드2",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 3,
+              name: "스케이트보드3",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 4,
+              name: "스케이트보드4",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+        {
+          category: "롱보드",
+          description: "주행에 최적화된 보드입니다.",
+          items: [
+            {
+              id: 0,
+              name: "롱보드0",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 1,
+              name: "롱보드1",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: "그룹5",
       itemList: [
         {
           category: "스케이트보드",

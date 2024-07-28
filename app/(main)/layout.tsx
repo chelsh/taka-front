@@ -13,7 +13,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <div>
       {children}
@@ -21,7 +20,9 @@ export default function RootLayout({
         <Link href="/rent">
           <Image
             src={
-              pathname === "/rent" ? "/blackRentBtn.svg" : "/grayRentBtn.svg"
+              pathname === "/rent" || pathname === "/rent/itemDetail"
+                ? "/blackRentBtn.svg"
+                : "/grayRentBtn.svg"
             }
             width={75}
             height={49}

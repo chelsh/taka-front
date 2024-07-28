@@ -21,7 +21,7 @@ export default function ItemsFeed({
   };
 }) {
   return (
-    <div className="py-8">
+    <div className="pt-8 pb-24">
       {group.itemList.map((itemGroup, idx) => (
         <div key={idx} className="px-4">
           <div className="text-xl font-semibold">{itemGroup.category}</div>
