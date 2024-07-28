@@ -16,6 +16,7 @@ export default function Home() {
   const [completeSignUp, setCompleteSignUp] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [modalText, setModalText] = useState<string>("");
+  const [showEmailWarning, setShowEmailWarning] = useState<boolean>(false);
 
   return (
     <div className="flex flex-col">
@@ -25,7 +26,7 @@ export default function Home() {
         </div>
         <div className="text-center w-full pt-40">
           <div className="text-lg font-semibold mb-6">비밀번호 찾기</div>
-          <div className="flex flex-col items-center justify-center mx-6 pb-8 space-y-4 relative">
+          <div className="flex flex-col items-center justify-center mx-6 pb-8 space-y-3 relative">
             <Input
               type="text"
               placeholder="이름"
@@ -50,16 +51,21 @@ export default function Home() {
                 className="bg-transparent pr-28 pl-4 text-sm py-2 w-full"
                 value={email}
                 onChange={(e) => {
-                  e.target.value = e.target.value.replace(
-                    /[^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$]/gi,
-                    ""
-                  );
+                  const regex1 = /[A-Za-z0-9]+@([a-z]+\.){1,2}[a-z]{2,}/;
+
+                  if (regex1.test(e.target.value)) setShowEmailWarning(false);
+                  else setShowEmailWarning(true);
                   setEmail(e.target.value);
                 }}
               />
               <button
                 className="w-[92px] bg-black text-white text-xs font-semibold px-2 py-1 mt-[6px] right-2 rounded-lg whitespace-nowrap absolute"
                 onClick={(e) => {
+                  if (showEmailWarning || !email) {
+                    setShowModal(true);
+                    setModalText("이메일 주소를 다시 한 번 확인해주세요.");
+                    return;
+                  }
                   /* 인증메일 발송 api */
                   const resOk = true;
                   const resMessage = "인증메일이 발송되었습니다.";
@@ -78,6 +84,11 @@ export default function Home() {
                 인증메일 발송
               </button>
             </label>
+            {showEmailWarning ? (
+              <div className="text-start w-full text-red-700 text-xs mt-1 ml-2">
+                정확한 이메일 주소를 써주세요.
+              </div>
+            ) : null}
             <label className="w-full border-[1px] rounded-lg flex flex-row">
               <input
                 type="text"
@@ -93,6 +104,11 @@ export default function Home() {
               <button
                 className="w-[92px] bg-black text-white text-xs font-semibold px-2 py-1 mt-[6px] right-2 rounded-lg whitespace-nowrap absolute"
                 onClick={() => {
+                  if (validationCode.length !== 6) {
+                    setShowModal(true);
+                    setModalText("6자리 인증번호를 정확히 입력해주세요.");
+                    return;
+                  }
                   /* 인증메일 검증 api */
                   const resOk = true;
                   const resMessage =
