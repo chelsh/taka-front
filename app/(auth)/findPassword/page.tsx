@@ -111,15 +111,13 @@ export default function Home() {
                   }
                   /* 인증메일 검증 api */
                   const resOk = true;
-                  const resMessage =
-                    "인증번호가 맞지 않습니다. 다시 한 번 확인해주세요.";
+                  const resMessage = "인증되었습니다.";
 
                   if (resOk) {
                     setIsEmailValidated(true);
-                  } else {
-                    setModalText(resMessage); //"인증번호가 맞지 않습니다. 다시 한 번 시도해주세요.", "인증번호 유효시간이 지났습니다. 다시 한 번 시도해주세요.", "인증번호 발송 후 입력해주세요." 등등
-                    setShowModal(true);
                   }
+                  setModalText(resMessage); //"인증번호가 맞지 않습니다. 다시 한 번 시도해주세요.", "인증번호 유효시간이 지났습니다. 다시 한 번 시도해주세요.", "인증번호 발송 후 입력해주세요." 등등
+                  setShowModal(true);
                 }}
               >
                 인증하기
