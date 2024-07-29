@@ -59,7 +59,7 @@ export default function ItemDetail({
           ))}
         </div>
       </div>
-      <div className="px-4 pt-4 flex flex-col pb-[150px]">
+      <div className="px-4 pt-4 flex flex-col pb-40">
         <div className="text-2xl font-semibold">{itemDetail.name}</div>
         <div className="font-light mb-2">
           대여 가능 기간: {itemDetail.rentalPeriod}일

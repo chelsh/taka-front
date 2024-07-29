@@ -23,10 +23,10 @@ export default function ItemsFeed({
   return (
     <div className="pt-8 pb-24">
       {group.itemList.map((itemGroup, idx) => (
-        <div key={idx} className="px-4">
+        <div key={idx} className="pl-4">
           <div className="text-xl font-semibold">{itemGroup.category}</div>
           <div className="text-sm opacity-50 pb-4">{itemGroup.description}</div>
-          <div className="flex space-x-3 overflow-x-scroll scrollbar-hide">
+          <div className="flex space-x-3 overflow-x-scroll scrollbar-hide pr-4">
             {itemGroup.items.map((item, idx) => (
               <Link
                 key={idx}
