@@ -31,7 +31,7 @@ export default function ItemDetail({
 
   return (
     <div>
-      <div className="z-[999] bg-white pt-10 w-full top-0 fixed pb-3 px-4 border-b-[1px] justify-center items-center flex flex-row border-b-gray-200">
+      <div className="fixed top-0 z-[999] flex w-full flex-row items-center justify-center border-b-[1px] border-b-gray-200 bg-white px-4 pb-3 pt-10">
         <Image
           src="/chevron-left.svg"
           width={20}
@@ -42,12 +42,12 @@ export default function ItemDetail({
         />
         <div className="text-lg font-semibold">{groupName}</div>
       </div>
-      <div className="pt-24 overflow-x-scroll px-4 flex scrollbar-hide">
+      <div className="flex overflow-x-scroll px-4 pt-24 scrollbar-hide">
         <div className="flex space-x-2">
           {itemDetail.photos.map((photo, idx) => (
             <div
               key={idx}
-              className="relative w-80 h-80 border-[1px] rounded-xl overflow-hidden"
+              className="relative h-[343px] w-[343px] overflow-hidden rounded-xl border-[1px]"
             >
               <Image
                 src={photo}
@@ -59,12 +59,12 @@ export default function ItemDetail({
           ))}
         </div>
       </div>
-      <div className="px-4 pt-4 flex flex-col pb-40">
+      <div className="flex flex-col px-4 pb-40 pt-4">
         <div className="text-2xl font-semibold">{itemDetail.name}</div>
-        <div className="font-light mb-2">
+        <div className="mb-2 font-light">
           대여 가능 기간: {itemDetail.rentalPeriod}일
         </div>
-        <ul className="mx-5 list-disc text-[#828282] text-sm">
+        <ul className="mx-5 list-disc text-sm text-[#828282]">
           {itemDetail.descriptionList.map((description, idx) => (
             <li key={idx}>{description}</li>
           ))}
@@ -103,7 +103,7 @@ export default function ItemDetail({
           ))}
         </ul>
       </div>
-      <div className="w-full px-4 fixed bottom-20 pb-4">
+      <div className="fixed bottom-20 w-full px-4 pb-4">
         <Button
           bgColor="bg-black"
           textColor="text-white"

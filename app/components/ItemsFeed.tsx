@@ -21,12 +21,12 @@ export default function ItemsFeed({
   };
 }) {
   return (
-    <div className="pt-8 pb-24">
+    <div className="pb-24 pt-8">
       {group.itemList.map((itemGroup, idx) => (
         <div key={idx} className="pl-4">
           <div className="text-xl font-semibold">{itemGroup.category}</div>
-          <div className="text-sm opacity-50 pb-4">{itemGroup.description}</div>
-          <div className="flex space-x-3 overflow-x-scroll scrollbar-hide pr-4">
+          <div className="pb-4 text-sm opacity-50">{itemGroup.description}</div>
+          <div className="flex space-x-3 overflow-x-scroll pr-4 scrollbar-hide">
             {itemGroup.items.map((item, idx) => (
               <Link
                 key={idx}
@@ -41,7 +41,7 @@ export default function ItemsFeed({
                 // as={`/rent/itemDetail`}
               >
                 <div className="pb-6">
-                  <div className="relative w-[150px] h-[150px] mb-2 border-[1px] rounded-xl overflow-hidden">
+                  <div className="relative mb-2 h-[150px] w-[150px] overflow-hidden rounded-xl border-[1px]">
                     <Image
                       src={item.photos[0]}
                       fill

@@ -470,11 +470,11 @@ export default function Rent() {
   const [selectedGroupIdx, setSelectedGroupIdx] = useState<number>(0);
   return (
     <div>
-      <div className="flex flex-row px-4 pt-16 space-x-3 overflow-x-scroll scrollbar-hide">
+      <div className="flex flex-row space-x-3 overflow-x-scroll px-4 pt-16 scrollbar-hide">
         {groups.map((group, idx) => (
           <div
             key={idx}
-            className="bg-[#f6f6f6] px-4 py-2 whitespace-nowrap rounded-3xl text-sm font-medium flex items-center text-center"
+            className="flex items-center whitespace-nowrap rounded-3xl bg-[#f6f6f6] px-4 py-2 text-center text-sm font-medium"
             style={{
               color: group.id === selectedGroupIdx ? "#fff" : "#000",
               backgroundColor:

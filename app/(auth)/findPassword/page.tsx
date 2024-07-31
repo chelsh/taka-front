@@ -21,12 +21,12 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <div>
-        <div className="pt-12 px-6 pb-8">
+        <div className="px-6 pb-8 pt-12">
           <Image src="/logo.svg" width={99} height={54} alt="logo" />
         </div>
-        <div className="text-center w-full pt-40">
-          <div className="text-lg font-semibold mb-6">비밀번호 찾기</div>
-          <div className="flex flex-col items-center justify-center mx-6 pb-8 space-y-3 relative">
+        <div className="w-full pt-40 text-center">
+          <div className="mb-6 text-lg font-semibold">비밀번호 찾기</div>
+          <div className="relative mx-6 flex flex-col items-center justify-center space-y-3 pb-8">
             <Input
               type="text"
               placeholder="이름"
@@ -44,11 +44,11 @@ export default function Home() {
                 setStudentId(e.target.value);
               }}
             />
-            <label className="w-full border-[1px] rounded-lg flex flex-row ">
+            <label className="flex w-full flex-row rounded-lg border-[1px]">
               <input
                 type="text"
                 placeholder="학교 이메일"
-                className="bg-transparent pr-28 pl-4 text-sm py-2 w-full"
+                className="w-full bg-transparent py-2 pl-4 pr-28 text-sm"
                 value={email}
                 onChange={(e) => {
                   const regex1 = /[A-Za-z0-9]+@([a-z]+\.){1,2}[a-z]{2,}/;
@@ -59,7 +59,7 @@ export default function Home() {
                 }}
               />
               <button
-                className="w-[92px] bg-black text-white text-xs font-semibold px-2 py-1 mt-[6px] right-2 rounded-lg whitespace-nowrap absolute"
+                className="absolute right-2 mt-[6px] w-[92px] whitespace-nowrap rounded-lg bg-black px-2 py-1 text-xs font-semibold text-white"
                 onClick={(e) => {
                   if (showEmailWarning || !email) {
                     setShowModal(true);
@@ -85,15 +85,15 @@ export default function Home() {
               </button>
             </label>
             {showEmailWarning ? (
-              <div className="text-start w-full text-red-700 text-xs mt-1 ml-2">
+              <div className="ml-2 mt-1 w-full text-start text-xs text-red-700">
                 정확한 이메일 주소를 써주세요.
               </div>
             ) : null}
-            <label className="w-full border-[1px] rounded-lg flex flex-row">
+            <label className="flex w-full flex-row rounded-lg border-[1px]">
               <input
                 type="text"
                 placeholder="인증번호"
-                className="bg-transparent pr-28 pl-4 text-sm py-2 w-full"
+                className="w-full bg-transparent py-2 pl-4 pr-28 text-sm"
                 value={validationCode}
                 maxLength={6}
                 onChange={(e) => {
@@ -102,7 +102,7 @@ export default function Home() {
                 }}
               />
               <button
-                className="w-[92px] bg-black text-white text-xs font-semibold px-2 py-1 mt-[6px] right-2 rounded-lg whitespace-nowrap absolute"
+                className="absolute right-2 mt-[6px] w-[92px] whitespace-nowrap rounded-lg bg-black px-2 py-1 text-xs font-semibold text-white"
                 onClick={() => {
                   if (validationCode.length !== 6) {
                     setShowModal(true);

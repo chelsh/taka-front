@@ -17,7 +17,7 @@ export default function Input({
     <input
       type={type}
       placeholder={placeholder}
-      className="border-[1px] rounded-lg px-4 text-sm py-2 w-full"
+      className="w-full rounded-lg border-[1px] px-4 py-2 text-sm"
       value={value}
       maxLength={maxLength}
       onChange={onChange}

@@ -9,7 +9,7 @@ export default function Return() {
   return (
     <div>
       <div className="px-4 pt-16 text-xl font-semibold">대여 중인 물품</div>
-      <div className="flex flex-row text-center py-[10px] text-[#828282] mt-4 mx-2 border-b-[1px] font-medium text-sm">
+      <div className="mx-2 mt-4 flex flex-row border-b-[1px] py-[10px] text-center text-sm font-medium text-[#828282]">
         <div className="flex-[14]">대여일</div>
         <div className="flex-[20]">대여 물품</div>
         <div className="flex-[14]">반납예정일</div>
@@ -18,14 +18,14 @@ export default function Return() {
       {rentedItems.map((item, idx) => (
         <div
           key={idx}
-          className="flex py-3 flex-row text-center mx-2 border-b-[1px] font-normal text-sm opacity-90"
+          className="mx-2 flex flex-row border-b-[1px] py-3 text-center text-sm font-normal opacity-90"
         >
           <div className="flex-[14] leading-7">{item.rentDate}</div>
           <div className="flex-[20] leading-7">{item.item}</div>
           <div className="flex-[14] leading-7">{item.returnDate}</div>
           <div className="flex-[11]">
             <button
-              className="bg-black whitespace-nowrap text-white text-xs font-semibold py-[6px] px-2 rounded-lg"
+              className="whitespace-nowrap rounded-lg bg-black px-2 py-[6px] text-xs font-semibold text-white"
               onClick={() => {
                 //반납 api
               }}
