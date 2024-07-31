@@ -19,13 +19,13 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <div>
-        <div className="flex flex-col items-center justify-center pt-32 pb-12 space-y-4">
+        <div className="flex flex-col items-center justify-center space-y-4 pb-12 pt-32">
           <Image src="/logo.svg" width={99} height={54} alt="logo" />
           <div className="text-sm font-light">당신을 위한 대여사업 도우미</div>
         </div>
-        <div className="text-center w-full">
-          <div className="text-lg font-semibold mb-6">로그인</div>
-          <div className="flex flex-col items-center justify-center space-y-3 mx-6 pb-8 border-b-[1px] border-b-gray-200">
+        <div className="w-full text-center">
+          <div className="mb-6 text-lg font-semibold">로그인</div>
+          <div className="mx-6 flex flex-col items-center justify-center space-y-3 border-b-[1px] border-b-gray-200 pb-8">
             <Input
               type="text"
               placeholder="학교 이메일"
@@ -40,7 +40,7 @@ export default function Home() {
               }}
             />
             {showEmailWarning ? (
-              <div className="mb-3 text-start w-full text-red-700 text-xs mt-1 ml-2">
+              <div className="mb-3 ml-2 mt-1 w-full text-start text-xs text-red-700">
                 정확한 이메일 주소를 써주세요.
               </div>
             ) : null}
@@ -57,7 +57,7 @@ export default function Home() {
               }}
             />
             {showPasswordWarning ? (
-              <div className="mb-3 w-full text-start flex text-red-700 text-xs mt-1 ml-2">
+              <div className="mb-3 ml-2 mt-1 flex w-full text-start text-xs text-red-700">
                 비밀번호는 영문, 숫자, 특수문자 조합의 8~15자를 사용해야 합니다.
               </div>
             ) : null}
@@ -74,12 +74,12 @@ export default function Home() {
               }}
             />
           </div>
-          <div className="flex justify-center items-center mb-8">
-            <span className="bg-white text-sm text-[#828282] absolute px-2">
+          <div className="mb-8 flex items-center justify-center">
+            <span className="absolute bg-white px-2 text-sm text-[#828282]">
               아직 계정이 없으신가요?
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center mx-6">
+          <div className="mx-6 flex flex-col items-center justify-center">
             <Button
               bgColor="bg-gray-200"
               textColor=""
@@ -89,7 +89,7 @@ export default function Home() {
               }}
             />
             <Link href="/findPassword">
-              <div className="underline text-[#828282] text-xs mt-3 cursor-pointer">
+              <div className="mt-3 cursor-pointer text-xs text-[#828282] underline">
                 비밀번호 찾기
               </div>
             </Link>
