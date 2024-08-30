@@ -11,12 +11,12 @@ export default function Button({
   textColor: string;
   innerText: string;
   style?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: Function;
 }) {
   return (
     <button
       className={`${bgColor} ${textColor} ${style} w-full rounded-lg py-2 text-sm`}
-      onClick={onClick}
+      onClick={() => onClick()}
     >
       {innerText}
     </button>

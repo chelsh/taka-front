@@ -7,12 +7,13 @@ import Button from "@/app/components/Button";
 import Modal from "@/app/components/Modal";
 import { useRouter } from "next/navigation";
 import ReadyToLogin from "@/app/components/ReadyToLogin";
+import { fetchUrl } from "@/app/lib/constants";
 
 export default function Home() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [validationCode, setValidationCode] = useState<string>("");
-  const [isEmailValidated, setIsEmailValidated] = useState<boolean>(false);
+  const [verificationCode, setVerificationCode] = useState<string>("");
+  const [isEmailVerified, setIsEmailVerified] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [major, setMajor] = useState<string>("");
   const [studentId, setStudentId] = useState<string>("");
@@ -54,23 +55,36 @@ export default function Home() {
               />
               <button
                 className="absolute right-2 mt-[6px] w-[92px] whitespace-nowrap rounded-lg bg-black px-2 py-1 text-xs font-semibold text-white"
-                onClick={(e) => {
+                onClick={async (e) => {
                   if (showEmailWarning || !email) {
                     setShowModal(true);
                     setModalText("이메일 주소를 다시 한 번 확인해주세요.");
                     return;
                   }
                   /* 인증메일 발송 api */
-                  const resOk = true;
-                  const resMessage = "인증메일이 발송되었습니다.";
+                  const resData = await (
+                    await fetch(
+                      `${fetchUrl}/api/auth/send-verification-code?email=${email}`,
+                      {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                      },
+                    )
+                  ).json();
 
-                  if (resOk) {
+                  //resData에 에러 메시지 있으면 더 좋을듯?
+
+                  if (resData.status == 200) {
                     const eventTarget = e.target as HTMLElement;
                     eventTarget.innerText = "인증메일 재발송";
-                    setModalText(resMessage);
+                    setModalText("인증메일이 발송되었습니다.");
                     setShowModal(true);
                   } else {
-                    setModalText(resMessage); //"인증메일 발송에 실패했습니다. 다시 한 번 시도해주세요." 등
+                    setModalText(
+                      "문제가 발생했습니다. 다시 한 번 시도해주세요.",
+                    ); //"인증메일 발송에 실패했습니다. 다시 한 번 시도해주세요." 등
                     setShowModal(true);
                   }
                 }}
@@ -88,36 +102,43 @@ export default function Home() {
                 type="text"
                 placeholder="인증번호"
                 className="w-full bg-transparent py-2 pl-4 pr-28 text-sm"
-                value={validationCode}
+                value={verificationCode}
                 maxLength={6}
                 onChange={(e) => {
                   e.target.value = e.target.value.replace(/[^0-9]/gi, "");
-                  setValidationCode(e.target.value);
+                  setVerificationCode(e.target.value);
                 }}
               />
               <button
                 className="absolute right-2 mt-[6px] w-[92px] whitespace-nowrap rounded-lg bg-black px-2 py-1 text-xs font-semibold text-white"
-                onClick={() => {
-                  if (validationCode.length !== 6) {
+                onClick={async () => {
+                  if (verificationCode.length !== 6) {
                     setShowModal(true);
                     setModalText("6자리 인증번호를 정확히 입력해주세요.");
                     return;
                   }
                   /* 인증메일 검증 api */
-                  const resOk = true;
-                  const resMessage = "인증되었습니다.";
+                  const resData = await (
+                    await fetch(
+                      `${fetchUrl}/api/auth/verify-code?email=${email}&verificationCode=${verificationCode}`,
+                      {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                      },
+                    )
+                  ).json();
 
-                  if (resOk) {
-                    setIsEmailValidated(true);
-                  }
-                  setModalText(resMessage); //"인증번호가 맞지 않습니다. 다시 한 번 시도해주세요.", "인증번호 유효시간이 지났습니다. 다시 한 번 시도해주세요.", "인증번호 발송 후 입력해주세요." 등등
+                  if (resData.status == 200) setIsEmailVerified(true);
+                  setModalText("인증되었습니다."); //"인증번호가 맞지 않습니다. 다시 한 번 시도해주세요.", "인증번호 유효시간이 지났습니다. 다시 한 번 시도해주세요.", "인증번호 발송 후 입력해주세요." 등등
                   setShowModal(true);
                 }}
               >
                 인증하기
               </button>
             </label>
-            {isEmailValidated ? (
+            {isEmailVerified ? (
               <div className="w-full space-y-3">
                 <Input
                   type="text"
@@ -194,11 +215,31 @@ export default function Home() {
                   bgColor="bg-black"
                   textColor="text-white"
                   innerText="회원가입"
-                  onClick={() => {
+                  onClick={async () => {
                     /* sign up api*/
+                    const resData = await (
+                      await fetch(
+                        `${fetchUrl}/api/auth/signup?email=${email}&verificationCode=${verificationCode}`,
+                        {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({
+                            email,
+                            password,
+                            name,
+                            major,
+                            studentNum: studentId,
+                            phoneNumber: phone,
+                            role: "USER",
+                            verificationCode,
+                          }),
+                        },
+                      )
+                    ).json();
 
-                    const resOk = true;
-                    if (resOk) {
+                    if (resData.status == 200) {
                       setCompleteSignUp(true);
                     }
                   }}
@@ -220,7 +261,9 @@ export default function Home() {
             />
           </div>
         </div>
-        {showModal ? <Modal text={modalText} showModal={setShowModal} /> : null}
+        {showModal ? (
+          <Modal text={modalText} cancelable={false} setShowModal={setShowModal} />
+        ) : null}
         {completeSignUp ? (
           <ReadyToLogin text={"회원가입이 완료되었습니다."} />
         ) : null}

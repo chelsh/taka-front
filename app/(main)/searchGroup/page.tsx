@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { groupsType } from "@/app/lib/constants";
+import Modal from "@/app/components/Modal";
 
 export default function SearchGroup() {
   const groups = [
@@ -14,6 +15,7 @@ export default function SearchGroup() {
 
   const [searchInput, setSearchInput] = useState<string>("");
   const [filteredGroups, setFilteredGroups] = useState<groupsType>(groups);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (searchInput) {
@@ -27,6 +29,10 @@ export default function SearchGroup() {
       setFilteredGroups(groups);
     }
   }, [searchInput]);
+
+  function callJoinGroupApi() {
+    return true;
+  }
 
   return (
     <div>
@@ -53,10 +59,21 @@ export default function SearchGroup() {
           <div className="flex-[2] leading-7">{group.belong}</div>
           <div className="flex-[2] leading-7">{group.group}</div>
           <div className="flex-1">
-            <button className="rounded-lg bg-black px-5 py-[6px] text-xs font-semibold text-white">
+            <button
+              className="rounded-lg bg-black px-5 py-[6px] text-xs font-semibold text-white"
+              onClick={() => setShowModal(true)}
+            >
               신청
             </button>
           </div>
+          {showModal ? (
+            <Modal
+              text={`'${group.group}'에 가입 신청하시겠습니까?`}
+              cancelable={true}
+              setShowModal={setShowModal}
+              callback={callJoinGroupApi}
+            />
+          ) : null}
         </div>
       ))}
     </div>

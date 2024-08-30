@@ -7,3 +7,5 @@ export type itemType = {
   rentalPeriod: number;
   descriptionList: string[];
 };
+
+export const fetchUrl = "13.209.80.4";

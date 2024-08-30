@@ -138,7 +138,9 @@ export default function Home() {
             />
           </div>
         </div>
-        {showModal ? <Modal text={modalText} showModal={setShowModal} /> : null}
+        {showModal ? (
+          <Modal text={modalText} cancelable={false} setShowModal={setShowModal} />
+        ) : null}
         {isEmailValidated && completeSignUp ? (
           <ReadyToLogin text={"이메일로 임시 비밀번호가 발급되었습니다."} />
         ) : null}

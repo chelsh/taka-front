@@ -16,7 +16,12 @@ export default function Rent() {
             {
               id: 0,
               name: "스케이트보드0",
-              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              photos: [
+                "/itemPhoto1.svg",
+                "/itemPhoto2.svg",
+                "/itemPhoto2.svg",
+                "/itemPhoto2.svg",
+              ], //photo url
               rentalPeriod: 3,
               descriptionList: [
                 "바퀴가 잘 안굴러가니 조심하세요!",
@@ -55,6 +60,36 @@ export default function Rent() {
             },
             {
               id: 4,
+              name: "스케이트보드4",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 5,
+              name: "스케이트보드4",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 6,
+              name: "스케이트보드4",
+              photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
+              rentalPeriod: 3,
+              descriptionList: [
+                "바퀴가 잘 안굴러가니 조심하세요!",
+                "대여 중 발생하는 안전사고는 책임지지 않습니다",
+              ],
+            },
+            {
+              id: 7,
               name: "스케이트보드4",
               photos: ["/itemPhoto1.svg", "/itemPhoto2.svg"], //photo url
               rentalPeriod: 3,
@@ -474,7 +509,7 @@ export default function Rent() {
         {groups.map((group, idx) => (
           <div
             key={idx}
-            className="flex items-center whitespace-nowrap rounded-3xl bg-[#f6f6f6] px-4 py-2 text-center text-sm font-medium"
+            className="flex cursor-pointer select-none items-center whitespace-nowrap rounded-3xl bg-[#f6f6f6] px-4 py-2 text-center text-sm font-medium"
             style={{
               color: group.id === selectedGroupIdx ? "#fff" : "#000",
               backgroundColor:

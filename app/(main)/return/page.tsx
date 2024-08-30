@@ -1,11 +1,21 @@
 "use client";
 
+import Modal from "@/app/components/Modal";
+import { useState } from "react";
+
 export default function Return() {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   const rentedItems = [
     { id: 0, rentDate: "24/06/23", item: "계산기1", returnDate: "24/06/25" },
     { id: 1, rentDate: "24/06/23", item: "계산기1", returnDate: "24/06/25" },
     { id: 2, rentDate: "24/06/23", item: "계산기1", returnDate: "24/06/25" },
   ];
+
+  function callReturnItemApi() {
+    return true;
+  }
+
   return (
     <div>
       <div className="px-4 pt-16 text-xl font-semibold">대여 중인 물품</div>
@@ -28,10 +38,19 @@ export default function Return() {
               className="whitespace-nowrap rounded-lg bg-black px-2 py-[6px] text-xs font-semibold text-white"
               onClick={() => {
                 //반납 api
+                setShowModal(true);
               }}
             >
               반납하기
             </button>
+            {showModal ? (
+              <Modal
+                text={`'${item.item}'을 반납하시겠습니까?`}
+                cancelable={true}
+                setShowModal={setShowModal}
+                callback={callReturnItemApi}
+              />
+            ) : null}
           </div>
         </div>
       ))}

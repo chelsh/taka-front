@@ -19,7 +19,14 @@ export default function ItemDetail({
   const itemDetail = {
     id: 0,
     name: "스케이트보드0",
-    photos: ["/itemPhoto1.svg", "/itemPhoto2.svg", "/board.jpeg"], //photo url
+    photos: [
+      "/itemPhoto1.svg",
+      "/itemPhoto2.svg",
+      "/board.jpeg",
+      "/board.jpeg",
+      "/board.jpeg",
+      "/board.jpeg",
+    ], //photo url
     rentalPeriod: 3,
     descriptionList: [
       "바퀴가 잘 안굴러가니 조심하세요!",
@@ -31,13 +38,13 @@ export default function ItemDetail({
 
   return (
     <div>
-      <div className="fixed top-0 z-[999] flex w-full flex-row items-center justify-center border-b-[1px] border-b-gray-200 bg-white px-4 pb-3 pt-10">
+      <div className="fixed top-0 z-[999] flex w-full max-w-screen-lg flex-row items-center justify-center border-b-[1px] border-b-gray-200 bg-white px-4 pb-3 pt-10">
         <Image
           src="/chevron-left.svg"
           width={20}
           height={20}
           alt="back"
-          className="absolute left-5"
+          className="absolute left-5 cursor-pointer"
           onClick={() => router.back()}
         />
         <div className="text-lg font-semibold">{groupName}</div>
@@ -103,12 +110,12 @@ export default function ItemDetail({
           ))}
         </ul>
       </div>
-      <div className="fixed bottom-20 w-full px-4 pb-4">
+      <div className="fixed bottom-20 w-full max-w-screen-lg px-4 pb-4">
         <Button
           bgColor="bg-black"
           textColor="text-white"
           innerText="대여하기"
-          style="py-3.5 text-base"
+          style="py-3.5 text-base shadow-lg"
           onClick={() => {
             //대여하기 api
           }}
