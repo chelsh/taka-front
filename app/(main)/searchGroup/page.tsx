@@ -11,11 +11,15 @@ export default function SearchGroup() {
     { id: 1, belong: "생명과학대학", group: "식품공학과" },
     { id: 2, belong: "생명과학대학", group: "식품공학과" },
     { id: 3, belong: "생명과학대학", group: "식품공학과" },
+    { id: 3, belong: "생명과학대학", group: "식품공학과" },
+    { id: 3, belong: "생명과학대학", group: "식품공학과" },
+    { id: 3, belong: "생명과학대학", group: "식품공학과" },
   ];
 
   const [searchInput, setSearchInput] = useState<string>("");
   const [filteredGroups, setFilteredGroups] = useState<groupsType>(groups);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [selectedGroupId, setSelectedGroupId] = useState<number>();
 
   useEffect(() => {
     if (searchInput) {
@@ -54,28 +58,28 @@ export default function SearchGroup() {
       {filteredGroups.map((group, idx) => (
         <div
           key={idx}
-          className="mx-2 flex flex-row border-b-[1px] py-3 text-center text-sm font-normal opacity-90"
+          className="mx-2 flex flex-row border-b-[1px] py-3 text-center text-sm font-normal"
         >
           <div className="flex-[2] leading-7">{group.belong}</div>
           <div className="flex-[2] leading-7">{group.group}</div>
           <div className="flex-1">
             <button
-              className="rounded-lg bg-black px-5 py-[6px] text-xs font-semibold text-white"
+              className="rounded-lg bg-black px-4 py-[6px] text-xs font-semibold text-white"
               onClick={() => setShowModal(true)}
             >
               신청
             </button>
           </div>
-          {showModal ? (
-            <Modal
-              text={`'${group.group}'에 가입 신청하시겠습니까?`}
-              cancelable={true}
-              setShowModal={setShowModal}
-              callback={callJoinGroupApi}
-            />
-          ) : null}
         </div>
       ))}
+      {showModal ? (
+        <Modal
+          text={`''에 가입 신청하시겠습니까?`}
+          cancelable={true}
+          setShowModal={setShowModal}
+          callback={callJoinGroupApi}
+        />
+      ) : null}
     </div>
   );
 }

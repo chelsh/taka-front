@@ -28,7 +28,7 @@ export default function Return() {
       {rentedItems.map((item, idx) => (
         <div
           key={idx}
-          className="mx-2 flex flex-row border-b-[1px] py-3 text-center text-sm font-normal opacity-90"
+          className="mx-2 flex flex-row border-b-[1px] py-3 text-center text-sm font-normal"
         >
           <div className="flex-[14] leading-7">{item.rentDate}</div>
           <div className="flex-[20] leading-7">{item.item}</div>
@@ -43,17 +43,17 @@ export default function Return() {
             >
               반납하기
             </button>
-            {showModal ? (
-              <Modal
-                text={`'${item.item}'을 반납하시겠습니까?`}
-                cancelable={true}
-                setShowModal={setShowModal}
-                callback={callReturnItemApi}
-              />
-            ) : null}
           </div>
         </div>
       ))}
+      {showModal ? (
+        <Modal
+          text={`''을 반납하시겠습니까?`}
+          cancelable={true}
+          setShowModal={setShowModal}
+          callback={callReturnItemApi}
+        />
+      ) : null}
     </div>
   );
 }

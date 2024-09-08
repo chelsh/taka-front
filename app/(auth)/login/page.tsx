@@ -26,6 +26,7 @@ export default function Home() {
         <div className="w-full text-center">
           <div className="mb-6 text-lg font-semibold">로그인</div>
           <div className="mx-6 flex flex-col items-center justify-center space-y-3 border-b-[1px] border-b-gray-200 pb-8">
+            {/* <div className="w-full"> */}
             <Input
               type="text"
               placeholder="학교 이메일"
@@ -39,6 +40,8 @@ export default function Home() {
                 setEmail(e.target.value);
               }}
             />
+            {/* <span className="absolute text-[#828282] right-10 mt-2">@korea.ac.kr</span> */}
+            {/* </div> */}
             {showEmailWarning ? (
               <div className="mb-3 ml-2 mt-1 w-full text-start text-xs text-red-700">
                 정확한 이메일 주소를 써주세요.

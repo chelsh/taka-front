@@ -128,8 +128,12 @@ export default function Home() {
               textColor="text-white"
               innerText="임시 비밀번호 발급받기"
               onClick={() => {
-                /* 임시 비밀번호 발급 api*/
+                if (isEmailValidated) {
+                  setModalText("이메일을 인증해주세요.");
+                  setShowModal(true);
+                }
 
+                /* 임시 비밀번호 발급 api*/
                 const resOk = true;
                 if (resOk) {
                   setCompleteSignUp(true);
@@ -139,7 +143,11 @@ export default function Home() {
           </div>
         </div>
         {showModal ? (
-          <Modal text={modalText} cancelable={false} setShowModal={setShowModal} />
+          <Modal
+            text={modalText}
+            cancelable={false}
+            setShowModal={setShowModal}
+          />
         ) : null}
         {isEmailValidated && completeSignUp ? (
           <ReadyToLogin text={"이메일로 임시 비밀번호가 발급되었습니다."} />

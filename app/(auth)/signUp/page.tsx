@@ -149,7 +149,7 @@ export default function Home() {
                 />
                 <Input
                   type="text"
-                  placeholder="전공"
+                  placeholder="전공 (ex: 생명과학대학 식품공학과)"
                   value={major}
                   maxLength={20}
                   onChange={(e) => setMajor(e.target.value)}

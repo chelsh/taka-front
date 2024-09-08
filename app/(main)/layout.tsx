@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <div>
       {children}
-      <div className="fixed  bottom-0 z-[999] flex w-full max-w-screen-lg flex-row justify-between border-t-[1px] border-t-gray-200 bg-white pb-8">
+      <div className="fixed bottom-0 flex w-full max-w-screen-lg flex-row justify-between border-t-[1px] border-t-gray-200 bg-white pb-8">
         <Link href="/rent">
           <Image
             src={
